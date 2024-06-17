@@ -1,4 +1,6 @@
-import Image from 'next/image'
+import Image from 'next/image';
+
+import { db } from '~/server/db/index'
 
 const mockUrls = [
     'https://i.ytimg.com/vi/l4Iu3YB0pTs/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBY3rFFNiVZ7OE7u5--K-AmnenTKw',
@@ -9,8 +11,10 @@ const mockUrls = [
 
 const mockImages = mockUrls.map((url, i) => ({id: i + 1, url}))
 
-export default function HomePage() {
-  return (
+export default async function HomePage() {
+    const posts = await db.query.posts.findMany();
+    console.log('posts', posts);
+    return (
     <main className="">
       <div className="flex flex-wrap gap-4">
           {mockImages.map((image, i) => (
@@ -18,6 +22,9 @@ export default function HomePage() {
                   <Image src={image.url} width={300} height={250} alt="1"/>
               </div>
           ))}
+          {
+              posts.map((post, i) => (<div key={post.id}>{post.name}</div>))
+          }
       </div>
     </main>
   );
