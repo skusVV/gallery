@@ -1,6 +1,8 @@
 import Image from 'next/image';
 
-import { db } from '~/server/db/index'
+import { db } from '~/server/db/index';
+
+export const dynamic = 'force-dynamic';
 
 const mockUrls = [
     'https://i.ytimg.com/vi/l4Iu3YB0pTs/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBY3rFFNiVZ7OE7u5--K-AmnenTKw',
