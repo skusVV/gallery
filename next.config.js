@@ -10,8 +10,9 @@ const config = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'i.ytimg.com',
+                hostname: 'utfs.io',
             },
+
         ],
     },
     typescript: {
