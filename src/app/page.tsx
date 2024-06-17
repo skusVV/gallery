@@ -1,4 +1,4 @@
-import { Image } from 'next/image'
+import Image from 'next/image'
 
 const mockUrls = [
     'https://i.ytimg.com/vi/l4Iu3YB0pTs/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBY3rFFNiVZ7OE7u5--K-AmnenTKw',
@@ -15,7 +15,7 @@ export default function HomePage() {
       <div className="flex flex-wrap gap-4">
           {mockImages.map((image, i) => (
               <div key={image.id} className="p-4">
-                  <img src={image.url} alt="1"/>
+                  <Image src={image.url} width={100} height={100} alt="1"/>
               </div>
           ))}
       </div>
